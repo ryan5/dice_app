@@ -10,6 +10,19 @@ class DiceApp extends StatefulWidget {
 class _DiceAppState extends State<DiceApp> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.red,
+          title: Text(
+            'Dice Rolls'
+          ),
+        ),
+        backgroundColor: Colors.red,
+        body: Center(
+
+        ),
+      ),
+    );
   }
 }
