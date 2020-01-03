@@ -10,12 +10,13 @@ class DiceApp extends StatefulWidget {
 
 class _DiceAppState extends State<DiceApp> {
   @override
-  int leftDieNumber = 1;
   int rightDieNumber = 1;
+  int leftDieNumber = 1;
+
   Widget build(BuildContext context) {
     void changeDice(){
-      leftDieNumber = Random().nextInt(6)+1;
       rightDieNumber = Random().nextInt(6)+1;
+      leftDieNumber = Random().nextInt(6)+1;
     }
     return MaterialApp(
       home: Scaffold(
@@ -29,17 +30,23 @@ class _DiceAppState extends State<DiceApp> {
         body: Center(
           child: Row(
             children: <Widget>[
-              Expanded(child: 
-              FlatButton(onPressed:
-              changeDice,
-                  child: Image.asset(
-                      'images/inverted-dice-$leftDieNumber.png'),
+              Expanded(child:
+              FlatButton(onPressed:(){
+                setState(() {
+                  changeDice();
+                });
+              },
+                child: Image.asset(
+                    'images/inverted-dice-$leftDieNumber.png'),
               ),
               ),
               Expanded(child: 
-              FlatButton(onPressed:
-              changeDice,
-                  child: Image.asset(
+              FlatButton(onPressed:(){
+                setState(() {
+                  changeDice();
+                });
+              },
+              child: Image.asset(
                       'images/inverted-dice-$rightDieNumber.png'),
               ),
               ),
